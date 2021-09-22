@@ -1,0 +1,20 @@
+# Q2b
+var w>=0, integer;
+# arrival of Car 1
+param t1:=10;
+# arrival of Car 2
+param t2:=15;
+# generation of report time
+param x:=16;
+# M is very large number
+param M:=9999;
+
+var k1, binary;
+var k2, binary;
+
+minimize wait_time: w;
+c11: w          =   (1-(k1-k2))*t1 + (k1-k2)*t2 + 24*k2 - x;
+c21: M*k1+t1    >=  x;
+c22: M*k2+t2    >=  x;
+
+end;

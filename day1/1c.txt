@@ -1,0 +1,9 @@
+# Q1c
+param a:= 10;
+param b:= 15;
+var c;
+var x, binary;
+maximize profit:     c;
+subject to c11: c = a*x + b*(1-x);
+
+end;

@@ -1,0 +1,28 @@
+# Q2a
+param cost_1:=30;
+param cost_2:=12;
+param cost_3:=11;
+param cost_4:=45;
+param cost_5:=22;
+param cost_6:=58;
+param cost_7:=10;
+param t:=11;
+# M is very large number
+param M:=9999;
+
+set day:=1..7;
+# x is report formation time
+var x{day}, integer, >=1, <=22;
+# w is wait time
+var w{day}, integer, >=0;
+# k is Kronecker delta
+var k{day}, binary;
+
+
+minimize tot_cost:  cost_1*w[1]+cost_2*w[2]+cost_3*w[3]+cost_4*w[4]+cost_5*w[5]+cost_6*w[6]+cost_7*w[7];
+
+c0{d in day diff {1}}:  x[d]         >=  x[d-1]+1;
+c1{d in day}:           w[d]         =   t-x[d]+24*k[d];
+c2{d in day}:           M*k[d] + t   >=  x[d];
+
+end;

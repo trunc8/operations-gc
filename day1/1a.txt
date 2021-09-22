@@ -1,0 +1,9 @@
+# Q1a
+param a:= 10;
+param b:= 15;
+var c;
+minimize profit:     c;
+subject to c11: c >= a;
+subject to c12: c >= b;
+
+end;
